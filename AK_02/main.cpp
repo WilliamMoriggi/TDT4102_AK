@@ -1,4 +1,7 @@
 #include "std_lib_facilities.h"
+#include "cmath"
+#include "Graph.h"
+#include "AnimationWindow.h"
 
 void inputAndPrintInteger();
 int inputInteger();
@@ -9,6 +12,14 @@ void numberSum();
 void sumOfNNumbers();
 double inputDouble();
 double nokToEuro();
+void printMultiplicationTable();
+double discriminant(double a, double b, double c);
+void printRealRoots(double a, double b, double c);
+void solveQuadraticEquation();
+void pythagorasTherumDrawer();
+
+
+
 int main()
 {
     /*
@@ -75,14 +86,22 @@ int main()
   Jeg brukte inputDouble framfor inputIntiger for å ikke måtte caste til en annen datatype inne i nokToEuro funksjonen,
   da blir svaret implisitt en double som er nice hvis man vil ha med cent i tilleg til euro.
   */
+
+ // Oppgave 3)
+ 
+
  int running = 1;
     while (running){
-         cout << "Velg funksjon: \n"
+         cout << '\n' << '\n'
+              << "Velg funksjon: \n"
               << "0) Avslutt \n"
               << "1) Summer to tall \n"
               << "2) Summer flere tall \n"
               << "3) Konverter NOK til EURO \n"
-              << "Angi valg (0-3) ";
+              << "4) Lag en gangetabell \n"
+              << "5) solve Quadratic Equation \n"
+              << "6) Vis pytagoras visuelt \n"
+              << "Angi valg (0-6) ";
 
         int choice = inputInteger();
         switch (choice){
@@ -100,6 +119,18 @@ int main()
 
             case 3:
             nokToEuro();
+            break;
+
+            case 4:
+            printMultiplicationTable();
+            break;
+
+            case 5:
+            solveQuadraticEquation();
+            break;
+            
+            case 6:
+            pythagorasTherumDrawer();
             break;
         }
     }
@@ -195,6 +226,64 @@ double nokToEuro(){
     return nok * 9.75;
 }
 
-void menu(){
 
+void printMultiplicationTable(){
+    int x = inputInteger();
+    int y = inputInteger();
+    for (int i = 1; i <= y; i++){
+        for(int j = 1; j <= x; j++){
+            cout << i*j << setw(5);
+        }
+        cout << '\n';
+    }
+}
+
+double discriminant(double a, double b, double c){
+    return pow(b,2) - 4*a*c;
+}
+
+void printRealRoots(double a, double b, double c){
+    double disc = discriminant(a,b,c);
+    if (disc>0){
+        int x1 = (-b + sqrt(disc)) / (2*a);
+        int x2 = (-b - sqrt(disc)) / (2*a);
+        cout << "Ligningen har to løsninger: "
+             << x1 << " og " << x2 << '\n';
+    }
+    else if (disc == 0){
+        int x = ((-1)*b)/2*a;
+        cout << "Ligningen har en løsning: "
+             << x << '\n';
+    }
+    else{
+        cout << "Ligningen har ingen reel losning \n";
+    }
+}
+
+void solveQuadraticEquation(){
+    cout << "legg inn verdiene for a, b og c - \n";
+    double a,b,c = 0;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+
+    printRealRoots(a,b,c);
+}
+
+void pythagorasTherumDrawer(){
+    using namespace TDT4102;
+    int height = 900;
+    int width = 900;
+    AnimationWindow win{100, 100, width, height, "Pythagoras"};
+
+    Point point1 {300,300};
+    Point point2 {300,600};
+    Point point3 {600,600};
+
+    win.draw_triangle(point1, point2, point3, Color::red);
+    win.draw_quad(Point{0, 300}, Point{300, 300}, Point{300, 600}, Point{0, 600}, Color::blue);
+    win.draw_quad(Point{300, 600}, Point{600, 600}, Point{600, 900}, Point{300, 900}, Color::blue);
+    win.draw_quad(Point{300, 600}, Point{600, 600}, Point{600, 900}, Point{300, 900}, Color::blue);
+    win.draw_quad(Point{300, 300}, Point{600, 600}, Point{600+300, 600-300}, Point{300+300, 300-300}, Color::blue);
+    win.wait_for_close();
 }
