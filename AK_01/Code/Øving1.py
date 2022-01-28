@@ -1,12 +1,5 @@
-def isFibonacciNumber(n):
-    a = 0
-    b = 1
-    while b < n :
-        temp = b
-        b += a
-        a = temp
+x = 0.001 * 90000
 
-    if a == b:
-      return True
-    else:
-        return False
+for i in range(10**49):
+    x+=x
+    print(x)

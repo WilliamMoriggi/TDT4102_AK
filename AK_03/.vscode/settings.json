@@ -1,0 +1,9 @@
+{
+    "tdt4102.isProjectFolder": true,
+    "files.associations": {
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "cstdlib": "cpp",
+        "random": "cpp"
+    }
+}
