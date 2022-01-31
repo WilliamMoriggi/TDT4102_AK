@@ -37,7 +37,7 @@ void printTime(double seconds_1){
 }
 
 double flightTime(double initVelocityY){
-    return (-2*initVelocityY)/initVelocityY;
+    return (-2*initVelocityY)/acclY();
 }
 
 

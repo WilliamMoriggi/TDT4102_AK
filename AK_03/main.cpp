@@ -10,8 +10,8 @@ void THEGAME_BBY();
 int main()
 {
     // testing av funksjonene
-    testDeviation(velY(0.0,2.5), 0.475, 0.001, "velY(0.0,2.5)");
-    testDeviation(velY(0.0,5.0), -24.05, 0.001, "velY(0.0,5.0)");
+    testDeviation(velY(25.0,2.5), 0.475, 0.001, "velY(0.0,2.5)");
+    testDeviation(velY(50.0,5.0), -24.05, 0.001, "velY(0.0,5.0)");
 
 	testDeviation(posX(0.0,50.0,2.5), 125.0, 0.0001, "posX(0.0,50.0,2.5)");
     testDeviation(posX(0.0,50.0,5.0), 250.0, 0.0001, "posX(0.0,50.0,5.0)");
@@ -57,7 +57,6 @@ bool checkIfDistanceToTargetIsCorrect() {
 
 void THEGAME_BBY(){
     int targetPlacement = randomWithLimits(100,1000);
-    cout << targetPlacement;
     for(int i = 1; i <= 10; i++){
         double theta = getUserInputTheta();
         double vel = getUserInputAbsVelocity();
@@ -65,17 +64,17 @@ void THEGAME_BBY(){
                                                getVelocityX(theta,vel),
                                                getVelocityY(theta,vel));
         
-        if (distFromTarget < 5.0 || distFromTarget > -5.0){
+        if (distFromTarget < 5.0 || distFromTarget < -5.0){
             printTime(flightTime(getVelocityY(theta,vel)));
             cout << getDistanceTraveled(getVelocityX(theta,vel),getVelocityY(theta,vel));
-            cout << "you win" << '\n';
+            cout << " you win" << '\n';
             break;
         }
         
         else{
             printTime(flightTime(getVelocityY(theta,vel)));
             cout << getDistanceTraveled(getVelocityX(theta,vel),getVelocityY(theta,vel));
-            cout << "try again :( " << '\n';
+            cout << " try again :( " << '\n';
         }
         
     }
