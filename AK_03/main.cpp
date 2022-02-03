@@ -64,17 +64,19 @@ void THEGAME_BBY(){
                                                getVelocityX(theta,vel),
                                                getVelocityY(theta,vel));
         
-        if (distFromTarget < 5.0 || distFromTarget < -5.0){
+        if (distFromTarget < 5.0 && distFromTarget > -5.0){
             printTime(flightTime(getVelocityY(theta,vel)));
-            cout << getDistanceTraveled(getVelocityX(theta,vel),getVelocityY(theta,vel));
-            cout << " you win" << '\n';
+            //cout << getDistanceTraveled(getVelocityX(theta,vel),getVelocityY(theta,vel));
+            cout << distFromTarget;
+            cout << "m away from target, you win" << '\n';
             break;
         }
         
         else{
             printTime(flightTime(getVelocityY(theta,vel)));
-            cout << getDistanceTraveled(getVelocityX(theta,vel),getVelocityY(theta,vel));
-            cout << " try again :( " << '\n';
+            //cout << getDistanceTraveled(getVelocityX(theta,vel),getVelocityY(theta,vel));
+            cout << distFromTarget;
+            cout << "m away from target, try again :( " << '\n';
         }
         
     }

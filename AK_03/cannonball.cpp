@@ -4,7 +4,7 @@
 
 
 double acclY(){
-    return -9.81;
+    return (-9.81);
 }
 
 double velY(double initVelocityY, double time){
@@ -37,7 +37,7 @@ void printTime(double seconds_1){
 }
 
 double flightTime(double initVelocityY){
-    return (-2*initVelocityY)/acclY();
+    return -2 * (initVelocityY/acclY());
 }
 
 
@@ -72,9 +72,7 @@ vector<double> getVelocityVector(double theta, double absVelocity){
 }
 
 double getDistanceTraveled(double velocityX, double velocityY){
-    double time = 0;
-    while (posY(0, velocityY, time) >= 0) time+= 0.0001;
-    return posX(0,velocityX, time);
+    return 2*(velocityX/velocityY)*velocityX;
 }
 
 double targetPractice(double distanceToTarget,double velocityX,double velocityY){
