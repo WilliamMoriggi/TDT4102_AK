@@ -96,14 +96,18 @@ int checkCharacters(string code, string guess){
     vector<int> code_amount = {};
     vector<int> guess_amount = {};
 
-    for (int i = 0; i < letter.size(); i++){
+    for (int i = 0; i < letter.size()-1; i++){
         code_amount.push_back(countChar(code, letter.at(i)));
         guess_amount.push_back(countChar(guess, letter.at(i)));
-        for (int j = 0; j < letter.size(); j++){
-            int amount = code_amount.at(j) - guess_amount.at(j); // ikke ferdig :/
-        }
-        int amount = countChar(code, guess.at(i));
-        if (amount > 0) counter++;
+    }
+    for (int j = 0; j < letter.size()-1; j++){
+        int a = code_amount.at(j);
+        int b = guess_amount.at(j);
+        int amount;
+        if (a < b) amount = a;
+        else if (a>b)amount = b;
+        else amount = a;
+        counter += amount;
     }
     return counter;
 }
