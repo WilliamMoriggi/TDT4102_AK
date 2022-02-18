@@ -23,4 +23,5 @@ int countChar(string sub, char n);
 
 int checkCharactersAndPosition(string code, string guess);
 int checkCharacters(string code, string guess);
+
 #endif /* !FILE_UTILITIES_SEEN */

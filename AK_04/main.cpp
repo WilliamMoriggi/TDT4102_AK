@@ -43,7 +43,7 @@ void playMastermind(){
     constexpr int letters = 6;
     const int numberOfTries = 5;
     string code = randomizeString(65,70,letters);
-    cout << code << endl;
+    //cout << code << endl;
     string guess = "";
     for(int i = 0; i <= numberOfTries; i++){
         guess = readInputToString(65,70,letters); 
