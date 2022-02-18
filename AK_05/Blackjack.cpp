@@ -99,7 +99,7 @@ void Blackjack::playGame(){
     if (playerHandSum < 21 && dealerHandSum < 21){
         if (playerHandSum > dealerHandSum) PLAYER_WIN = true;
         else PLAYER_WIN = false;
-    }z
+    }
 
     cout << "The dealer had a score of: " << dealerHandSum << endl;
     cout << "Your score was: " << playerHandSum << endl;
