@@ -63,6 +63,3 @@ std::ostream& operator<<(std::ostream& os, const Matrix& mtrx){
     }
     return os;
 }
-
-
-

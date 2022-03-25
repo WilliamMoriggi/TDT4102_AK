@@ -24,7 +24,9 @@ int main()
     Matrix b = Matrix(a);
     b = a; 
     std::cout<<b;
-    //dummyTest();
+
+
+    dummyTest();
 }
  
 
