@@ -2,7 +2,7 @@
 #include "Car.h"
 #include "Meeting.h"
 #include "Person.h"
-
+#include "MeetingWindow.h"
 int main()
 {
 
@@ -34,5 +34,9 @@ int main()
     for (std::shared_ptr<Person> coDriver : meet1.findPotentialCoDriving(meet2)) {
         std::cout << *coDriver << std::endl;
     }
+
+    MeetingWindow mw = MeetingWindow(50,50,500,500,"Window");
+
+    gui_main();
        
 }
